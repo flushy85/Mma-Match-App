@@ -30,7 +30,7 @@ mongoose
 app.use(cors())
 app.use(bodyParser.json())
 app.use(middleware.requestLogger)
-
+app.use(express.static('build'))
 app.use('/api/login', loginRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/fighters', fightersRouter)
