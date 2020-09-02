@@ -141,7 +141,7 @@ module.exports.getFighter = function (query, callback) {
           $('.module.fight_history tr:not(.table_head)').each(function () {
             let el = $(this)
             let result = el.find('td:nth-child(1) .final_result').text()
-            let opponent_name = el.find('td:nth-child(2) a').attr('href')
+            let opponent_name = el.find('td:nth-child(2) a').text()
             let event_name = el.find('td:nth-child(3) a').text()
             let event_url = el.find('td:nth-child(3) a').attr('href')
             let event_date = el.find('td:nth-child(3) .sub_line').text()
