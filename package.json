@@ -8,7 +8,7 @@
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "deploy": "git push heroku master",
-    "build:ui": "rm -rf build && cd ../mma-match-app-frontend/ && npm run build --prod && cp -r build ../mma-match-app-backend/",
+    "build:ui": "rm -rf build && cd ../frontend/ && npm run build --prod && cp -r build ../mma-match-app/",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",
     "logs:prod": "heroku logs --tail"
   },
