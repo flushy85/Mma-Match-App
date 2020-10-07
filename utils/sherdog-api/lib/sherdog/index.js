@@ -15,6 +15,7 @@ module.exports.getFighter = function (query, callback) {
   }
   googleIt({ options, query: `${query} sherdog` })
     .then((results) => {
+      console.log(options)
       var resultContains = function (link, query) {
         if (link !== null) {
           if (link.indexOf(query) > -1) {
@@ -22,14 +23,12 @@ module.exports.getFighter = function (query, callback) {
           }
         }
       }
-
       for (var i = 0; i < results.length; ++i) {
         if (resultContains(results[i].link, 'sherdog.com/fighter/')) {
           sherdog_url = results[i].link
           break
         }
       }
-
       request(sherdog_url, function (error, response, html) {
         if (!error && response.statusCode == 200) {
           var $ = cheerio.load(html)
